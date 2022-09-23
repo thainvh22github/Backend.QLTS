@@ -1,10 +1,13 @@
-﻿namespace MISA.Web08.QLTS.API.Entities
+﻿using MISA.Web08.QLTS.API.Attributes;
+
+namespace MISA.Web08.QLTS.API.Entities
 {
     public class Assets
     {
         /// <summary>
         /// ID tài sản
         /// </summary>
+        [PrimaryKey]
         public Guid fixed_asset_id { get; set; }
 
         /// <summary>

@@ -44,7 +44,12 @@ namespace MISA.Web08.QLTS.API.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError, "e001");
+                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult(
+                    AssetErrorCode.Exception,
+                    "Catch an exception",
+                    "Có lỗi xảy ra! Vui lòng liên hệ với MISA.",
+                    "https://openapi.misa.com.vn/errorcode/e001",
+                    HttpContext.TraceIdentifier));
             }
 
 
@@ -220,6 +225,7 @@ namespace MISA.Web08.QLTS.API.Controllers
         [HttpPost]
         public IActionResult InsertAsset([FromBody] Assets asset)
         {
+
             try
             {
                 //khởi tạo kết nối đến db mySQL
