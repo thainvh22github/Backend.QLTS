@@ -17,7 +17,7 @@ namespace MISA.Web08.QLTS.API.Controllers
         /// <summary>
         /// API lấy danh sách toàn bộ nhân viên
         /// </summary>
-        /// <returns>Lấy danh sách toàn bộ nhân viên</returns>
+        /// <returns>Lấy danh sách toàn bộ tài sản</returns>
         /// Author: NVHThai (16/09/2022)
         [HttpGet]
         [Route("")]
@@ -95,10 +95,18 @@ namespace MISA.Web08.QLTS.API.Controllers
         }
 
 
-
+        /// <summary>
+        /// Hàm tìm kiếm và phân trang
+        /// </summary>
+        /// <param name="keword">tìm kiếm theo mã tài sản và tên tài sản</param>
+        /// <param name="assetCategoryID">lọc theo id loại tài sản</param>
+        /// <param name="departmentID">lọc theo id phòng ban</param>
+        /// <param name="limit">số trang trong 1 bản ghi</param>
+        /// <param name="offset">số trang</param>
+        /// <returns>Danh sách tài sản</returns>
         [HttpGet("filter")]
         public IActionResult FilterAssets([FromQuery] string? keword, [FromQuery] Guid? assetCategoryID,
-            [FromQuery] Guid? departmentID, [FromQuery] int limit = 20, [FromQuery] int offset = 0)
+            [FromQuery] Guid? departmentID, [FromQuery] int limit = 20, [FromQuery] int offset = 1)
         {
             try
             {
@@ -111,7 +119,7 @@ namespace MISA.Web08.QLTS.API.Controllers
 
                 // Chuẩn bị tham số đầu vào cho stored procedure
                 var parameters = new DynamicParameters();
-                parameters.Add("@$v_Offset", offset * limit);
+                parameters.Add("@$v_Offset", (offset - 1) * limit);
                 parameters.Add("@$v_Limit", limit);
                 parameters.Add("@$v_Sort", "");
 
