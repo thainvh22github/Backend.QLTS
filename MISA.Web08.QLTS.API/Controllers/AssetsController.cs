@@ -341,6 +341,31 @@ namespace MISA.Web08.QLTS.API.Controllers
         {
             try
             {
+                // Validate dữ liệu đầu vào
+                var properties = typeof(Assets).GetProperties();
+                var validateFailures = new List<string>();
+                foreach (var property in properties)
+                {
+                    string propertyName = property.Name;
+                    var propertyValue = property.GetValue(asset);
+                    var IsNotNullOrEmptyAttribute = (IsNotNullOrEmptyAttribute?)Attribute.GetCustomAttribute(property, typeof(IsNotNullOrEmptyAttribute));
+                    if (IsNotNullOrEmptyAttribute != null && string.IsNullOrEmpty(propertyValue?.ToString()))
+                    {
+                        validateFailures.Add(IsNotNullOrEmptyAttribute.ErrorMessage);
+                    }
+                }
+
+                if (validateFailures.Count > 0)
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult(
+                        AssetErrorCode.InvalidInput,
+                        Resource.UserMsg_ValidateFailed,
+                        Resource.UserMsg_ValidateFailed,
+                        validateFailures,
+                        HttpContext.TraceIdentifier));
+                }
+
+
                 //khởi tạo kết nối đến db mySQL
                 string connectionString = "Server=localhost;Port=3306;Database=misa.web08.hcsn.nvhthai;Uid=root;Pwd=thaibqhg12;";
                 var mySqlConnection = new MySqlConnection(connectionString);
