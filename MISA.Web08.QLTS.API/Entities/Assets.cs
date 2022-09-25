@@ -13,11 +13,13 @@ namespace MISA.Web08.QLTS.API.Entities
         /// <summary>
         /// Mã tài sản
         /// </summary>
+        [IsNotNullOrEmpty("Mã tài sản không được để trống")]
         public string fixed_asset_code { get; set; }
 
         /// <summary>
         /// tên tài sản
         /// </summary>
+        [IsNotNullOrEmpty("tên tài sản không được để trống")]
         public string fixed_asset_name { get; set; }
 
 

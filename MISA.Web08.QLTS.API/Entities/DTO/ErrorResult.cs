@@ -24,7 +24,7 @@ namespace MISA.Web08.QLTS.API.Entities.DTO
         /// <summary>
         /// Một số thông tin khác
         /// </summary>
-        public string MoreInfo { get; set; }
+        public Object MoreInfo { get; set; }
 
         /// <summary>
         /// Số nhận dạng theo dõi
@@ -37,7 +37,7 @@ namespace MISA.Web08.QLTS.API.Entities.DTO
 
         public ErrorResult() { }
 
-        public ErrorResult(AssetErrorCode errorCode, string devMsg, string userMsg, string moreInfo, string traceId)
+        public ErrorResult(AssetErrorCode errorCode, string devMsg, string userMsg, Object moreInfo, string traceId)
         {
             ErrorCode = errorCode;
             DevMsg = devMsg;

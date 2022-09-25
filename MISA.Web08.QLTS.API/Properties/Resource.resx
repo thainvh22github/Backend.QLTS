@@ -117,7 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="UsingMsg_ValidateFailed" xml:space="preserve">
+  <data name="DevMeg_ValidateFailed" xml:space="preserve">
+    <value>Invalid input data</value>
+    <comment>Thông báo cho dev khi dữ liệu đầu vào không hợp lệ</comment>
+  </data>
+  <data name="DevMsg_Exception" xml:space="preserve">
+    <value>Catch an exception</value>
+    <comment>Thông báo cho dev khi gọi API bị exception</comment>
+  </data>
+  <data name="MoreInfo_Exception" xml:space="preserve">
+    <value>https://openapi.misa.com.vn/errorcode/e001</value>
+    <comment>Đường dẫn đến trang mô tả lỗi Insert vào bản ghi thất bại</comment>
+  </data>
+  <data name="UseMsg_Exception" xml:space="preserve">
+    <value>Có lỗi xảy ra vui lòng liên hệ MISA</value>
+    <comment>Thông báo cho người dùng khi gọi API bị exception</comment>
+  </data>
+  <data name="UserMsg_ValidateFailed" xml:space="preserve">
     <value>Dữ liệu đầu vào không hợp lệ</value>
+    <comment>Thông báo cho người dùng khi dữ liệu đầu vào không hợp lệ</comment>
   </data>
 </root>
