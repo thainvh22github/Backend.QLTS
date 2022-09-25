@@ -31,6 +31,7 @@ namespace MISA.Web08.QLTS.API.Entities
         /// <summary>
         /// mã loại tài sản
         /// </summary>
+        [IsNotNullOrEmpty("Mã phòng ban không được để trống")]
         public string department_code { get; set; }
 
         /// <summary>
@@ -46,6 +47,7 @@ namespace MISA.Web08.QLTS.API.Entities
         /// <summary>
         /// mã phòng ban
         /// </summary>
+        [IsNotNullOrEmpty("Mã loại tài sản không được để trống")]
         public string fixed_asset_category_code { get; set; }
 
         /// <summary>
@@ -56,22 +58,26 @@ namespace MISA.Web08.QLTS.API.Entities
         /// <summary>
         /// ngày mua
         /// </summary>
+        [IsNotNullOrEmpty("Ngày mua không được để trống")]
         public DateTime purchase_date { get; set; }
 
 
         /// <summary>
         /// nguyên giá
         /// </summary>
+        [IsNotNullOrEmpty("Nguyên giá không được để trống")]
         public float cost { get; set; }
 
         /// <summary>
         /// số lượng
         /// </summary>
+        [IsNotNullOrEmpty("Số lượng không được để trống")]
         public int quantity { get; set; }
 
         /// <summary>
         /// tỷ lệ hao mòn
         /// </summary>
+        [IsNotNullOrEmpty("tỷ lệ hao mòn không được để trống")]
         public float depreciation_rate { get; set; }
 
         /// <summary>
@@ -83,11 +89,13 @@ namespace MISA.Web08.QLTS.API.Entities
         /// <summary>
         /// số năm sử dụng
         /// </summary>
+        [IsNotNullOrEmpty("số năm sử dụng không được để trống")]
         public int life_time { get; set; }
 
         /// <summary>
         /// ngày bắt đầu sử dụng
         /// </summary>
+        [IsNotNullOrEmpty("ngày bắt đầu sử dụng không được để trống")]
         public DateTime production_date { get; set; }
 
         /// <summary>
